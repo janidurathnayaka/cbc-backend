@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 
 const app = express();
 
-const mongourl = "mongodb+srv://admin:J123@cluster0.evw1sxh.mongodb.net/?appName=Cluster0";
+const mongourl = "mongodb+srv://janidugimantha56_db_user:TwIVK7lPSCfMR0Mq@cluster0.txcqc6v.mongodb.net/?appName=Cluster0";
 
 mongoose.connect(mongourl);
 
