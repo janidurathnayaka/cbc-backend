@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import StudentRouter from "./routes/StudentRouter.js";
 import ProductRouter from "./routes/ProductRouter.js";
 import userRouter from './routes/userRouter.js';
 import jwt from "jsonwebtoken";
@@ -50,8 +49,6 @@ app.use(
 // ✅ FIXED HERE
 
 app.use("/api/products", ProductRouter);
-
-app.use("/api/students",StudentRouter);
 
 app.use("/api/users",userRouter);
 
