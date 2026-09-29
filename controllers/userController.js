@@ -1,6 +1,9 @@
 import User from "../models/user.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { connect } from "mongoose";
 
 export function createUser(req,res){
@@ -45,7 +48,7 @@ export function loginUser(req,res){
                     type :user.type,
                     profilePicture:user.profilepicture,
 
-                },"cbc-secret-key-7973")
+                },process.env.SECRET_KEY,)
 
                 res.json({
                     message:"user logged in",
