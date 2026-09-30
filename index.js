@@ -1,13 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import ProductRouter from "./routes/ProductRouter.js";
+
 import userRouter from './routes/userRouter.js';
 import jwt from "jsonwebtoken";
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
+   
 const app = express();
 
 
@@ -52,7 +52,7 @@ app.use(
 
 // ✅ FIXED HERE
 
-app.use("/api/products", ProductRouter);
+
 
 app.use("/api/users",userRouter);
 
