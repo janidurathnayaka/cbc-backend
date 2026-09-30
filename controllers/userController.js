@@ -11,6 +11,25 @@ export function createUser(req,res){
     const newUserData = req.body 
     newUserData.password  = bcrypt.hashSync(newUserData.password, 10)
 
+    if (newUserData.type == "admin"){
+
+        if (req.user == null ){
+            res.json({
+                message : "you are not authorized to create admin user"
+            })
+             return            
+    }
+
+
+    if (req.user.type != "admin"){
+
+        res.json({
+            message : "you are not authorized to create admin user"
+        })
+        return
+    }
+
+
     const user = new User (newUserData)
 
     user.save ().then(()=>{
@@ -24,7 +43,7 @@ export function createUser(req,res){
     })
 })
 
-}
+}}
 
 export function loginUser(req,res){
     User.find({email: req.body.email}).then(
@@ -83,5 +102,31 @@ export function deleteUser(req,res){
 }
 
 
+
+export function isAdmin(req){
+    if (req.user == null){
+        return false
+    }
+    return true
+
+    if( req.user.type != "admin"){
+        return false
+    }
+    return true
+}
+
+export function isCustomer(req){
+    if (req.user == null){
+        return false
+    }
+    return true
+
+    if( req.user.type != "customer"){
+        return false
+    }
+    return true
+
+
+}
 
 
