@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import userRouter from './routes/userRouter.js';
+import ProductRouter from './routes/productRouter.js';
 import jwt from "jsonwebtoken";
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
@@ -55,6 +56,7 @@ app.use(
 
 
 app.use("/api/users",userRouter);
+app.use("/api/products",ProductRouter);
 
 app.listen(5000, () => {
     console.log('server is running on port 5000');
